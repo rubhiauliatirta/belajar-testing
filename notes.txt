@@ -1,0 +1,31 @@
+
+
+// TEST
+
+Apa yang ditesting
+==============
+1. render halaman/componentnya
+2. cek apakah dirender dengan benar
+- query beberapa node DOM nya, lalu cek isinya apakah sesuai ekspektasi
+- lakukan interaksi sebagaimana user melakukan interaksi dengan halaman
+cek respon dari dom apakah sesuai ekspektasi
+
+HOME
+==============
+1. Ada element dengan role button 
+yang text nya adalah Lihat Students
+dan berjenis primary
+2. Ada element dengan role caption 
+yang text nya adalah Hello, Jersey!
+
+STUDENT
+===============
+1. berhasil pindah ke halaman students
+2. Ada text Daftar dan Student Terdaftar
+3. Ada form name dan house
+4. Ada errorForm tapi masih null
+5. ada container untuk student terdaftar dan isinya masih kosong
+
+INTERAKSI USER
+===============
+1. Submit di klik tanpa isi input
