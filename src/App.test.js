@@ -1,8 +1,11 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, cleanup, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import App from './App';
 import Home from "./pages/Home";
 
+afterEach(() => {
+  cleanup()
+})
 
 test('Render halaman Home dengan benar', () => {
   render(<Home />)
@@ -75,24 +78,8 @@ test("gagal menambahka student field harus diisi semua", () => {
 
 })
 
-test("Async call api", (done) => {
-  const { findByText } = render(<App />)
-
-  findByText("Harry Dhimas")
-    .then(element => {
-      expect(element).toBeInTheDocument()
-    })
-
-
-
-  // act(async () => render(<App />))
-  //   .then(_ => {
-  //     return screen.findByText("Harry Dhimas")
-  //   })
-  //   .then(element => {
-  //     console.log(element)
-  //     done()
-  //   })
-  //   .catch(console.log)
-
+test("Async call api", async () => {
+  await act(async () => render(<App />));
+  await screen.findByText("Harry Dhimas", undefined, { timeout: 10000 })
+  screen.debug()
 })
