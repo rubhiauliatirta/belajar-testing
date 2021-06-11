@@ -83,3 +83,9 @@ test("Async call api", async () => {
   await screen.findByText("Harry Dhimas", undefined, { timeout: 10000 })
   screen.debug()
 })
+
+// async data waitFor
+test('Berhasil menampilkan Async data untuk student list dari server', async () => {
+  await render(<App />)
+  await waitFor(async () => screen.findByText('Seven Snape'), { timeout: 5000 })
+})
